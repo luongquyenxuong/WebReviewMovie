@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org"
+      xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="UTF-8">
+    <title>Home</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.1.0/css/bootstrap.min.css">
+    <link rel="stylesheet" th:href="@{/assets/vendors/mdi/css/materialdesignicons.min.css}"/>
+    <link rel="stylesheet" th:href="@{/assets/vendors/css/vendor.bundle.base.css}"/>
+    <link rel="stylesheet" th:href="@{/assets/user/css/font-awesome.min.css}"/>
+    <link rel="stylesheet" th:href="@{/assets/user/css/style.css}"/>
+    <link rel="stylesheet" th:href="@{/assets/user/font/font.css}"/>
+    <link rel="stylesheet" th:href="@{/assets/user/css/responsive.css}"/>
+</head>
+<body>
+<div class="fix header_area">
+    <div class="fix wrap header">
+        <a th:href="@{/user/home}">
+            <div class="logo floatleft">
+                <h1>Review Movie</h1>
+            </div>
+        </a>
+        <div class="manu floatright">
+            <ul id="nav-top">
+                <li><a th:href="@{/user/home}">Home</a></li>
+                <li><a th:href="@{/post/create}">Create post</a></li>
+                <li><a th:href="@{/profile/home}">profile</a></li>
+                <li><a th:href="@{/profile/archive-page}">archive</a></li>
+                <li><a th:href="@{/logout}">log out</a></li>
+            </ul>
+            <select class="selectnav" id="selectnav1">
+                <option value="">-Navigation-</option>
+                <option value="file:///D:/Wordspace/html_css_js/index.html" selected="">HOME</option>
+                <option value="file:///D:/Wordspace/html_css_js/single.html">SINGLE</option>
+                <option value="file:///D:/Wordspace/html_css_js/about.html">ABOUT</option>
+                <option value="file:///D:/Wordspace/html_css_js/contact.html">CONTACT</option>
+            </select>
+        </div>
+    </div>
+</div>
+<div class="fix content_area">
+    <div th:include="common/search"></div>
+
+    <div class="fix wrap content_wrapper">
+        <div class="fix content">
+
+            <div class="fix m-auto">
+                <div id="content" class="fix single_content_wrapper text-center">
+                    <div id="loader" class="spinner-border" style="display: none" role="status">
+                        <span class="visually-hidden">Loading...</span>
+                    </div>
+                    <div id="no-list" class="" style="display: none">
+                        <h1 class="text-warning">List not found</h1>
+                    </div>
+                    <div class="container-fluid">
+                        <div id="content-post" class="row g-2">
+                            <!--                            post list-->
+                        </div>
+                    </div>
+
+                </div>
+                <nav aria-label="Page navigation example">
+                    <ul class="pagination justify-content-center">
+                    </ul>
+                </nav>
+            </div>
+
+        </div>
+    </div>
+</div>
+<div class="fix footer_top_area">
+    <footer class="footer text-center w-auto">
+        <div class="d-flex justify-content-center ">
+            <span class="text-muted d-block text-center d-sm-inline-block">Copyright © bootstrapdash.com 2021</span>
+        </div>
+    </footer>
+</div>
+<script th:src="@{/assets/js/paginate.js}"></script>
+<script th:src="@{/assets/user/js/selectnav.min.js}"></script>
+<script  th:src="@{/assets/user/js/api-user.js}"></script>
+<script th:src="@{/assets/user/js/search-profile.js}"></script>
+</body>
+</html>

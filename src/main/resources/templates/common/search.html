@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org"
+      xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="UTF-8">
+    <title>search</title>
+</head>
+<body>
+<div class=" top_add_bar px-2" th:fragment="search">
+    <div class="form-group row d-flex justify-content-center align-items-end ">
+        <div class="col">
+            <label for="fromDate"><strong>Author</strong></label>
+            <input type="text" id="author" class="form-control me-2" placeholder="..."
+                   aria-label="Text input with dropdown button">
+        </div>
+        <div class="col">
+            <label for="fromDate"><strong> Title</strong></label>
+            <input type="text" id="title" class="form-control" placeholder="..."
+                   aria-label="Text input with dropdown button">
+        </div>
+
+        <div class="col">
+            <label for="fromDate">From</label>
+            <input type="date" id="fromDate" class="form-control" placeholder="..."
+                   aria-label="Text input with dropdown button">
+        </div>
+
+        <div class="col">
+            <label for="toDate">To</label>
+            <input type="date" id="toDate" class="form-control" placeholder="Title..."
+                   aria-label="Text input with dropdown button">
+        </div>
+
+        <div class="col">
+            <button type="button" style="height: 40px" class="btn btn-sm btn-primary" onclick="searchPostByConditionTime(1)" >Search
+            </button>
+        </div>
+
+    </div>
+</div>
+
+
+</body>
+</html>

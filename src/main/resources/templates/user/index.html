@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org"
+      xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="UTF-8">
+    <title>Home</title>
+    <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/toastify-js/src/toastify.min.css">
+    <link rel="stylesheet" th:href="@{/assets/vendors/mdi/css/materialdesignicons.min.css}"/>
+    <link rel="stylesheet" th:href="@{/assets/vendors/css/vendor.bundle.base.css}"/>
+    <link rel="stylesheet" th:href="@{/assets/css/style.css}"/>
+    <link rel="stylesheet" th:href="@{/assets/user/css/font-awesome.min.css}"/>
+    <link rel="stylesheet" th:href="@{/assets/user/css/style.css}"/>
+    <link rel="stylesheet" th:href="@{/assets/user/font/font.css}"/>
+    <link rel="stylesheet" th:href="@{/assets/user/css/responsive.css}"/>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.1.0/css/bootstrap.min.css">
+
+
+</head>
+<body>
+<div class="fix header_area visible">
+    <div class="fix wrap header visible">
+        <div class="logo floatleft">
+            <a th:href="@{/user/home}">
+                <div class="logo floatleft">
+                    <h1>Review Movie</h1>
+                </div>
+            </a>
+        </div>
+        <div class="manu floatright">
+            <ul id="nav-top">
+                <li><a th:href="@{/user/home}">Home</a></li>
+                <li th:if="${isLogin}"><a th:href="@{/post/create}">Create post</a></li>
+                <li th:if="${isLogin}"><a th:href="@{/profile/home}">profile</a></li>
+                <li th:if="${isLogin}"><a th:href="@{/profile/archive-page}">archive</a></li>
+                <li th:if="${isLogin}"><a th:href="@{/logout}">log out</a></li>
+                <li th:unless="${isLogin}"><a th:href="@{/login}">log in</a></li>
+                <li th:if="${isLogin}" class="dropdown nav-item" onclick="loadMyNotificationList()">
+
+                    <a class="nav-link count-indicator dropdown-toggle" id="notificationDropdown" href="#"
+                       data-bs-toggle="dropdown">
+                        <i class="mdi mdi-bell"></i>
+                    </a>
+
+                                        <div class="dropdown-menu dropdown-menu-right navbar-dropdown preview-list"
+                                             aria-labelledby="notificationDropdown"
+
+                                             style="position: absolute;inset: 0 auto auto 0;margin: 0;transform: translate(-398px, 48px)">
+                                            <!--                         style="position: absolute; inset: 0px auto auto 0px; margin: 0px; transform: translate(-398px, 48px)"-->
+
+                                            <h6 class="p-3 mb-0">Notifications</h6>
+                                            <div id="notification-list">
+                                                //
+                                            </div>
+
+                                        </div>
+                </li>
+
+            </ul>
+
+        </div>
+    </div>
+</div>
+<div class="fix content_area">
+    <div th:include="common/search"></div>
+
+    <div class="fix wrap content_wrapper">
+        <div class="fix content">
+
+
+            <div id="content" class="fix single_content_wrapper text-center">
+                <div id="loader" class="spinner-border" style="display: none" role="status">
+                    <span class="visually-hidden">Loading...</span>
+                </div>
+                <div id="no-list" class="" style="display: none">
+                    <h1 class="text-warning">List not found</h1>
+                </div>
+                <div class="container-fluid">
+                    <div id="content-post" class="row g-2">
+                        <!--                            post list-->
+                    </div>
+                </div>
+
+            </div>
+            <nav aria-label="Page navigation example">
+                <ul class="pagination justify-content-center">
+                </ul>
+            </nav>
+
+
+        </div>
+    </div>
+</div>
+<div class="fix footer_top_area">
+    <footer class="footer bg-white text-center w-auto">
+        <div class="d-flex justify-content-center ">
+            <span class="text-muted d-block text-center d-sm-inline-block">Copyright © bootstrapdash.com 2021</span>
+        </div>
+    </footer>
+</div>
+<div th:include="common/modal"></div>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM"
+        crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/@stomp/stompjs@7.0.0/bundles/stomp.umd.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/sockjs-client@1/dist/sockjs.min.js"></script>
+<!--<script src="https://code.jquery.com/jquery-3.1.1.min.js"></script>-->
+<script type="text/javascript" src="https://cdn.jsdelivr.net/npm/toastify-js"></script>
+<script th:if="${isLogin}" th:src="@{/assets/user/js/notification.js}"></script>
+<script th:src="@{/assets/js/toast.js}"></script>
+<script th:src="@{/assets/user/js/selectnav.min.js}"></script>
+<script th:if="${isLogin}" th:src="@{/assets/user/js/api-user.js}"></script>
+<script th:src="@{/assets/js/paginate.js}"></script>
+<script th:src="@{/assets/user/js/search.js}"></script>
+<script th:if="${isLogin}" th:src="@{/assets/user/js/load-my-notification.js}"></script>
+<script th:if="${isLogin}" th:src="@{/assets/user/js/connect-websocket.js}"></script>
+</body>
+</html>
+
+
+
+

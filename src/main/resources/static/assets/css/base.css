@@ -1,0 +1,24 @@
+/* Validate form */
+.invalid input {
+    border: 1px solid rgb(255, 0, 0);
+    box-shadow: 0 0 3px red;
+}
+
+.invalid span {
+    color: rgb(255, 0, 0);
+    font-size: 1.2rem;
+    display: block;
+    margin-top: 6px;
+}
+
+.valid input {
+    border: 1px solid rgb(0, 182, 61);
+    box-shadow: 0px 0px 3px rgb(0, 255, 106);
+}
+
+.valid span {
+    display: block;
+    color: rgb(0, 182, 61);
+    margin-top: 6px;
+    font-size: 1.2rem;
+}
